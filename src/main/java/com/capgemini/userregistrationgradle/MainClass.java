@@ -5,5 +5,6 @@ public class MainClass {
 		System.out.println("Welcome to User Registration");
 		CheckFormat.checkFirstName();
 		CheckFormat.checkLastName();
+		CheckFormat.checkEmail();
 	}
 }
