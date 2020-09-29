@@ -5,13 +5,10 @@ package com.capgemini.usergegistrationgradle;
 
 import org.junit.Test;
 
-import com.capgemini.userregistrationgradle.CheckoFormat;
+import com.capgemini.userregistrationgradle.CheckFormat;
 
 import static org.junit.Assert.*;
 
 public class UserRegistrationTestCase {
-    @Test public void testSomeLibraryMethod() {
-        CheckoFormat classUnderTest = new CheckoFormat();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
-    }
+
 }
