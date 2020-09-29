@@ -44,4 +44,14 @@ public class CheckFormat {
 		else
 			System.out.println("Invalid Phone Number");
 	}
+
+	static void checkPassword() {
+		Pattern pattern = Pattern.compile("^\\\\S{8,}$");
+		Matcher matcher = pattern.matcher(TakingInput.passWord());
+		boolean matchFound = matcher.find();
+		if (matchFound)
+			System.out.println("Valid Password");
+		else
+			System.out.println("Invalid Password");
+	}
 }

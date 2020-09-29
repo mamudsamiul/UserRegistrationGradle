@@ -32,4 +32,11 @@ public class TakingInput {
 		phone = scan.nextLine();
 		return phone;
 	}
+
+	static String passWord() {
+		System.out.println("Enter Your Password");
+		String password;
+		password = scan.nextLine();
+		return password;
+	}
 }
