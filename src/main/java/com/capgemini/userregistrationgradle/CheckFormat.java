@@ -46,7 +46,7 @@ public class CheckFormat {
 	}
 
 	static void checkPassword() {
-		Pattern pattern = Pattern.compile("^\\\\S{8,}$");
+		Pattern pattern = Pattern.compile("^.*[A-Z]+(\\S){7,}$");
 		Matcher matcher = pattern.matcher(TakingInput.passWord());
 		boolean matchFound = matcher.find();
 		if (matchFound)
