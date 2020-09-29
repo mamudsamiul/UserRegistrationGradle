@@ -18,4 +18,11 @@ public class TakingInput {
 		lastName = scan.nextLine();
 		return lastName;
 	}
+
+	static String email() {
+		System.out.println("Enter Your Email address");
+		String email;
+		email = scan.nextLine();
+		return email;
+	}
 }

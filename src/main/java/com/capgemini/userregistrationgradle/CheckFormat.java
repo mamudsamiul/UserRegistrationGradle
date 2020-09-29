@@ -23,4 +23,15 @@ public class CheckFormat {
 		else
 			System.out.println("Invalid last Name");
 	}
+
+	static void checkEmail() {
+		Pattern pattern = Pattern
+				.compile("^([a-z]){1,}([.+_-]){0,1}[0-9a-z]*(@){1}([0-9a-z]*)(.([a-z]){2,}){1}(.[a-z][a-z])?$");
+		Matcher matcher = pattern.matcher(TakingInput.email());
+		boolean matchFound = matcher.find();
+		if (matchFound)
+			System.out.println("Valid Email");
+		else
+			System.out.println("Invalid Email");
+	}
 }
