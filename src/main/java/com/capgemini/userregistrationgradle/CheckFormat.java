@@ -46,7 +46,7 @@ public class CheckFormat {
 	}
 
 	static void checkPassword() {
-		Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9]).{8,}");
+		Pattern pattern = Pattern.compile("^(?=.*\\d)(?=.*[A-Z])(?=.*\\W)(?!.*\\W\\w*\\W)(?!.*\\s).{8,}$");
 		Matcher matcher = pattern.matcher(TakingInput.passWord());
 		boolean matchFound = matcher.find();
 		if (matchFound)
