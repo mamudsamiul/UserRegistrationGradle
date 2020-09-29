@@ -6,5 +6,6 @@ public class MainClass {
 		CheckFormat.checkFirstName();
 		CheckFormat.checkLastName();
 		CheckFormat.checkEmail();
+		CheckFormat.checkPhone();
 	}
 }

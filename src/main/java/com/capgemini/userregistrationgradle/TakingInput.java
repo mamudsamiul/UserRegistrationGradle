@@ -25,4 +25,11 @@ public class TakingInput {
 		email = scan.nextLine();
 		return email;
 	}
+
+	static String phoneNo() {
+		System.out.println("Enter Your Mobile Number");
+		String phone;
+		phone = scan.nextLine();
+		return phone;
+	}
 }

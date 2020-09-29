@@ -26,12 +26,22 @@ public class CheckFormat {
 
 	static void checkEmail() {
 		Pattern pattern = Pattern
-				.compile("^([a-z]){1,}([.+_-]){0,1}[0-9a-z]*(@){1}([0-9a-z]*)(.([a-z]){2,}){1}(.[a-z][a-z])?$");
+				.compile("^([a-z]){1,}([.+_-]){0,1}[0-9a-z]+(@){1}([0-9a-z]*)(.([a-z]){2,}){1}(.[a-z][a-z])?$");
 		Matcher matcher = pattern.matcher(TakingInput.email());
 		boolean matchFound = matcher.find();
 		if (matchFound)
 			System.out.println("Valid Email");
 		else
 			System.out.println("Invalid Email");
+	}
+
+	static void checkPhone() {
+		Pattern pattern = Pattern.compile("^91\\s[0-9]{10}$");
+		Matcher matcher = pattern.matcher(TakingInput.phoneNo());
+		boolean matchFound = matcher.find();
+		if (matchFound)
+			System.out.println("Valid Phone Number");
+		else
+			System.out.println("Invalid Phone Number");
 	}
 }
