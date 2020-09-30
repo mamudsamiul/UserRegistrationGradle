@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import com.capgemini.userregistrationgradle.CheckFormat;
+import com.capgemini.userregistrationgradle.UserRegistrationException;
 
 import junit.framework.Assert;
 
@@ -42,6 +43,12 @@ public class UserRegistrationTestCase {
 	@Test
 	public void check() {
 		CheckFormat checkFormat = new CheckFormat();
-		assertEquals(expectedResult, checkFormat.checkEmail(emailAddress));
+		try {
+			boolean result=checkFormat.checkEmail(emailAddress);
+			assertEquals(expectedResult,result);
+		}catch(UserRegistrationException e) {
+			Assert.assertEquals("Please Enter Proper email", e.getMessage());
+		}
+		
 	}
 }
