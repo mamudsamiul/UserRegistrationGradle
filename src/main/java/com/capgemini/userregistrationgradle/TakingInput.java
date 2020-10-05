@@ -27,7 +27,7 @@ public class TakingInput {
 	}
 
 	static String phoneNo() {
-		System.out.println("Enter Your Mobile Number");
+		System.out.println("Enter Your Phone Number");
 		String phone;
 		phone = scan.nextLine();
 		return phone;
