@@ -4,23 +4,30 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CheckFormat {
+	final static String NAME_PATTERN = "^([A-Z])[a-zA-Z]{2,}$";
+	final static String EMAIL_PATTERN = "^([a-z]){1,}([.+_-]){0,1}[0-9a-z]+(@){1}([0-9a-z]*)(.([a-z]){2,}){1}(.[a-z][a-z])?$";
+	final static String PHONE_PATTERN = "^91\\s[0-9]{10}$";
+	final static String PASSWORD_PATTERN = "^(?=.*\\d)(?=.*[A-Z])(?=.*\\W)(?!.*\\W\\w*\\W)(?!.*\\s).{8,}$";
+
 	public static boolean checkFirstName(String firstName) throws UserRegistrationException {
-		Pattern pattern = Pattern.compile("^([A-Z])[a-zA-Z]{2,}$");
-		Matcher matcher = pattern.matcher(firstName);
-		boolean matchFound = matcher.find();
+		IValidate validateFirstName = firstNameValid -> {
+			return Pattern.compile(NAME_PATTERN).matcher(firstNameValid).find();
+		};
+
+		boolean matchFound = validateFirstName.valid(firstName);
 		if (matchFound)
 			System.out.println("Valid first Name");
 		else {
-			System.out.println("Invalid first Name");
 			throw new UserRegistrationException("Please enter proper fname");
 		}
 		return matchFound;
 	}
 
 	public static boolean checkLastName(String lastName) throws UserRegistrationException {
-		Pattern pattern = Pattern.compile("^([A-Z])[a-zA-Z]{2,}$");
-		Matcher matcher = pattern.matcher(lastName);
-		boolean matchFound = matcher.find();
+		IValidate validateLastName = lastNameValid -> {
+			return Pattern.compile(NAME_PATTERN).matcher(lastNameValid).find();
+		};
+		boolean matchFound = validateLastName.valid(lastName);
 		if (matchFound)
 			System.out.println("Valid last Name");
 		else
@@ -29,10 +36,10 @@ public class CheckFormat {
 	}
 
 	public static boolean checkEmail(String email) throws UserRegistrationException {
-		Pattern pattern = Pattern
-				.compile("^([a-z]){1,}([.+_-]){0,1}[0-9a-z]+(@){1}([0-9a-z]*)(.([a-z]){2,}){1}(.[a-z][a-z])?$");
-		Matcher matcher = pattern.matcher(email);
-		boolean matchFound = matcher.find();
+		IValidate validateEmail = emailValid -> {
+			return Pattern.compile(EMAIL_PATTERN).matcher(emailValid).find();
+		};
+		boolean matchFound = validateEmail.valid(email);
 		if (matchFound)
 			System.out.println("Valid Email");
 		else
@@ -41,9 +48,10 @@ public class CheckFormat {
 	}
 
 	public static boolean checkPhone(String phoneNo) throws UserRegistrationException {
-		Pattern pattern = Pattern.compile("^91\\s[0-9]{10}$");
-		Matcher matcher = pattern.matcher(phoneNo);
-		boolean matchFound = matcher.find();
+		IValidate validatePhoneNo = phoneValid -> {
+			return Pattern.compile(PHONE_PATTERN).matcher(phoneValid).find();
+		};
+		boolean matchFound = validatePhoneNo.valid(phoneNo);
 		if (matchFound)
 			System.out.println("Valid Phone Number");
 		else
@@ -52,9 +60,10 @@ public class CheckFormat {
 	}
 
 	public static boolean checkPassword(String password) throws UserRegistrationException {
-		Pattern pattern = Pattern.compile("^(?=.*\\d)(?=.*[A-Z])(?=.*\\W)(?!.*\\W\\w*\\W)(?!.*\\s).{8,}$");
-		Matcher matcher = pattern.matcher(password);
-		boolean matchFound = matcher.find();
+		IValidate validatePassword = passwordValid -> {
+			return Pattern.compile(PASSWORD_PATTERN).matcher(passwordValid).find();
+		};
+		boolean matchFound = validatePassword.valid(password);
 		if (matchFound)
 			System.out.println("Valid Password");
 		else
